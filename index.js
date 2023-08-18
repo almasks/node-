@@ -10,36 +10,36 @@
 //     }
 // })
 // emitter.emit('orderpizza','large','mushrom')
-const PizzaShop=require('./pizzaShop')
-const ServeDrink=require('./getDrink')
-const pizzaShop = new PizzaShop()
-const drinks =new ServeDrink()
-pizzaShop.on("order",(size,toppings)=>{
-    console.log(`orderd pizza with ${size} and ${toppings}`)
-    drinks.drink(size)
+// const PizzaShop=require('./pizzaShop')
+// const ServeDrink=require('./getDrink')
+// const pizzaShop = new PizzaShop()
+// const drinks =new ServeDrink()
+// pizzaShop.on("order",(size,toppings)=>{
+//     console.log(`orderd pizza with ${size} and ${toppings}`)
+//     drinks.drink(size)
+// })
+// pizzaShop.order("large","mushroom")
+// pizzaShop.displayOrderNumber()
+const fs =require("node:fs")
+const fileContent =fs.readFileSync('./file.txt',"utf-8")
+console.log(fileContent)
+fs.readFile('./file.txt',"utf-8",(error,data)=>{
+    if(error){
+        console.log(error)
+    }else{
+        console.log(data)
+    }
 })
-pizzaShop.order("large","mushroom")
-pizzaShop.displayOrderNumber()
-// const fs =require("node:fs")
-// const fileContent =fs.readFileSync('./file.txt',"utf-8")
-// console.log(fileContent)
-// fs.readFile('./file.txt',"utf-8",(error,data)=>{
-//     if(error){
-//         console.log(error)
-//     }else{
-//         console.log(data)
-//     }
-// })
-// fs.writeFileSync("./greet.txt","Hello world!!")
+fs.writeFileSync("./greet.txt","Hello world!!")
 
-// fs.writeFile("./greet.txt","hello Almas",{flag:"a"},(err)=>{
-//     if(err){
-//         console.log(err)
+fs.writeFile("./greet.txt","hello Almas",{flag:"a"},(err)=>{
+    if(err){
+        console.log(err)
 
-//     }else{
-//         console.log('file written')
-//     }
-// })
+    }else{
+        console.log('file written')
+    }
+})
 //fs /promise module
 // const fs =require("node:fs/promises")
 // fs.readFile("./file.txt","utf-8")
