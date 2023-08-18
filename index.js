@@ -1,25 +1,25 @@
-const EventEmitter =require("node:events")
+// const EventEmitter =require("node:events")
 
-const emitter =new EventEmitter()
-emitter.on('orderpizza',(size,topping)=>{
-    console.log(`ordererd pizza with ${size} size and ${topping} topping`)
-})
-emitter.on('orderpizza',(size)=>{
-    if(size==='large'){
-        console.log('served with complementery drink')
-    }
-})
-emitter.emit('orderpizza','large','mushrom')
-// const PizzaShop=require('./pizzaShop')
-// const ServeDrink=require('./getDrink')
-// const pizzaShop = new PizzaShop()
-// const drinks =new ServeDrink()
-// pizzaShop.on("order",(size,toppings)=>{
-//     console.log(`orderd pizza with ${size} and ${toppings}`)
-//     drinks.drink(size)
+// const emitter =new EventEmitter()
+// emitter.on('orderpizza',(size,topping)=>{
+//     console.log(`ordererd pizza with ${size} size and ${topping} topping`)
 // })
-// pizzaShop.order("large","mushroom")
-// pizzaShop.displayOrderNumber()
+// emitter.on('orderpizza',(size)=>{
+//     if(size==='large'){
+//         console.log('served with complementery drink')
+//     }
+// })
+// emitter.emit('orderpizza','large','mushrom')
+const PizzaShop=require('./pizzaShop')
+const ServeDrink=require('./getDrink')
+const pizzaShop = new PizzaShop()
+const drinks =new ServeDrink()
+pizzaShop.on("order",(size,toppings)=>{
+    console.log(`orderd pizza with ${size} and ${toppings}`)
+    drinks.drink(size)
+})
+pizzaShop.order("large","mushroom")
+pizzaShop.displayOrderNumber()
 // const fs =require("node:fs")
 // const fileContent =fs.readFileSync('./file.txt',"utf-8")
 // console.log(fileContent)
