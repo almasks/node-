@@ -20,32 +20,32 @@
 // })
 // pizzaShop.order("large","mushroom")
 // pizzaShop.displayOrderNumber()
-const fs =require("node:fs")
-const fileContent =fs.readFileSync('./file.txt',"utf-8")
-console.log(fileContent)
-fs.readFile('./file.txt',"utf-8",(error,data)=>{
-    if(error){
-        console.log(error)
-    }else{
-        console.log(data)
-    }
-})
-fs.writeFileSync("./greet.txt","Hello world!!")
+// const fs =require("node:fs")
+// const fileContent =fs.readFileSync('./file.txt',"utf-8")
+// console.log(fileContent)
+// fs.readFile('./file.txt',"utf-8",(error,data)=>{
+//     if(error){
+//         console.log(error)
+//     }else{
+//         console.log(data)
+//     }
+// })
+// fs.writeFileSync("./greet.txt","Hello world!!")
 
-fs.writeFile("./greet.txt","hello Almas",{flag:"a"},(err)=>{
-    if(err){
-        console.log(err)
+// fs.writeFile("./greet.txt","hello Almas",{flag:"a"},(err)=>{
+//     if(err){
+//         console.log(err)
 
-    }else{
-        console.log('file written')
-    }
-})
+//     }else{
+//         console.log('file written')
+//     }
+// })
 //fs /promise module
-// const fs =require("node:fs/promises")
-// fs.readFile("./file.txt","utf-8")
-// .then(data=>console.log(data))
-// .catch(error=>console.log(error))
-//using async and await
+const fs =require("node:fs/promises")
+fs.readFile("./file.txt","utf-8")
+.then(data=>console.log(data))
+.catch(error=>console.log(error))
+// using async and await
 // const fs =require("node:fs/promises")
 // async function readFile(){
 //     try{
