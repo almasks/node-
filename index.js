@@ -46,23 +46,23 @@
 // .then(data=>console.log(data))
 // .catch(error=>console.log(error))
 // using async and await
-const fs =require("node:fs/promises")
-async function readFile(){
-    try{
-        const data = await fs.readFile("./file.txt","utf-8")
-        console.log(data)
-    }catch(err){
-        console.log(err)
-    }
-}
-readFile()
+// const fs =require("node:fs/promises")
+// async function readFile(){
+//     try{
+//         const data = await fs.readFile("./file.txt","utf-8")
+//         console.log(data)
+//     }catch(err){
+//         console.log(err)
+//     }
+// }
+// readFile()
 //using stream in fs module
-// const fs =require("node:fs")
-// const readableStream =fs.createReadStream("./file.txt",{
-//     encoding:"utf-8"
-// })
-// const writableStream =fs.createWriteStream("./file1.txt")
-// readableStream.on("data", (chunk)=>{
-//     console.log(chunk)
-//     writableStream.write(chunk)
-// })
+const fs =require("node:fs")
+const readableStream =fs.createReadStream("./file.txt",{
+    encoding:"utf-8"
+})
+const writableStream =fs.createWriteStream("./file1.txt")
+readableStream.on("data", (chunk)=>{
+    console.log(chunk)
+    writableStream.write(chunk)
+})
