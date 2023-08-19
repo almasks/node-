@@ -80,13 +80,26 @@
 // const writableStream =fs.createWriteStream("./file2.txt")
 // readableStream.pipe(writableStream)
 //node server
-const http = require("node:http")
-const server = http.createServer((req,res)=>{
-    res.writeHead(200,{'Content-Type':"text/plain"})
-    res.end("hello world welcome almas")
-    console.log(req)
+// const http = require("node:http")
+// const server = http.createServer((req,res)=>{
+//     res.writeHead(200,{'Content-Type':"text/plain"})
+//     res.end("hello world welcome almas")
+//     console.log(req)
 
+// })
+// server.listen(3004,()=>{
+//     console.log("server created on port 3004")
+// })
+//create json response
+const http=require("node:http")
+const server=http.createServer((req,res)=>{
+    const superHero={
+        firstName:"Bruce",
+        lastName:"Wayne"
+    }
+    res.writeHead(200,{"Content-Type":"application/json"})
+    res.end(JSON.stringify(superHero))
 })
-server.listen(3004,()=>{
-    console.log("server created on port 3004")
+server.listen(3005,()=>{
+    console.log("server created with json response in port 3005")
 })
