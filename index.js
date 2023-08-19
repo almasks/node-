@@ -91,15 +91,24 @@
 //     console.log("server created on port 3004")
 // })
 //create json response
+// const http=require("node:http")
+// const server=http.createServer((req,res)=>{
+//     const superHero={
+//         firstName:"Bruce",
+//         lastName:"Wayne"
+//     }
+//     res.writeHead(200,{"Content-Type":"application/json"})
+//     res.end(JSON.stringify(superHero))
+// })
+// server.listen(3001,()=>{
+//     console.log("server created with json response in port 3001")
+// })
+//html response 1st method
 const http=require("node:http")
-const server=http.createServer((req,res)=>{
-    const superHero={
-        firstName:"Bruce",
-        lastName:"Wayne"
-    }
-    res.writeHead(200,{"Content-Type":"application/json"})
-    res.end(JSON.stringify(superHero))
-})
-server.listen(3005,()=>{
-    console.log("server created with json response in port 3005")
-})
+ const server=http.createServer((req,res)=>{
+    res.writeHead(200,{"Content-Type":"text/html"})
+    res.end("<h1>hello world</h1>")
+ })
+ server.listen(3001,()=>{
+    console.log("server created on port 3001 with html")
+ })
