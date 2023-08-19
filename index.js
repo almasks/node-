@@ -20,7 +20,8 @@
 // })
 // pizzaShop.order("large","mushroom")
 // pizzaShop.displayOrderNumber()
-// const fs =require("node:fs")
+
+//******************** */ const fs =require("node:fs")****************
 // const fileContent =fs.readFileSync('./file.txt',"utf-8")
 // console.log(fileContent)
 // fs.readFile('./file.txt',"utf-8",(error,data)=>{
@@ -40,12 +41,12 @@
 //         console.log('file written')
 //     }
 // })
-//fs /promise module
+//*************************fs /promise module*********************
 // const fs =require("node:fs/promises")
 // fs.readFile("./file.txt","utf-8")
 // .then(data=>console.log(data))
 // .catch(error=>console.log(error))
-// using async and await
+// ****************************using async and await*******************
 // const fs =require("node:fs/promises")
 // async function readFile(){
 //     try{
@@ -56,7 +57,7 @@
 //     }
 // }
 // readFile()
-//using stream in fs module
+//**********************using stream in fs module**************************
 // const fs =require("node:fs")
 // const readableStream =fs.createReadStream("./file.txt",{
 //     encoding:"utf-8"
@@ -68,7 +69,7 @@
 //     console.log(chunk)
 //     writableStream.write(chunk)
 // })
-// //using pipe 
+// ****************using pipe ****************
 
 // const fs =require("node:fs")
 // const zlib=require("node:zlib");
@@ -79,7 +80,7 @@
 // readableStream.pipe(gzip).pipe(fs.WriteStream('./file2.txt.gz'))
 // const writableStream =fs.createWriteStream("./file2.txt")
 // readableStream.pipe(writableStream)
-//node server
+//***************node server*************
 // const http = require("node:http")
 // const server = http.createServer((req,res)=>{
 //     res.writeHead(200,{'Content-Type':"text/plain"})
@@ -90,7 +91,7 @@
 // server.listen(3004,()=>{
 //     console.log("server created on port 3004")
 // })
-//create json response
+//****************create json response*********************
 // const http=require("node:http")
 // const server=http.createServer((req,res)=>{
 //     const superHero={
@@ -103,12 +104,23 @@
 // server.listen(3001,()=>{
 //     console.log("server created with json response in port 3001")
 // })
-//html response 1st method
-const http=require("node:http")
- const server=http.createServer((req,res)=>{
+//**********************html response 1st method********************
+// const http=require("node:http")
+//  const server=http.createServer((req,res)=>{
+//     res.writeHead(200,{"Content-Type":"text/html"})
+//     res.end("<h1>hello world</h1>")
+//  })
+//  server.listen(3001,()=>{
+//     console.log("server created on port 3001 with html")
+//  })
+//*****************html response second method***********
+const http =require("node:http")
+const fs=require("node:fs")
+const server=http.createServer((req,res)=>{
     res.writeHead(200,{"Content-Type":"text/html"})
-    res.end("<h1>hello world</h1>")
- })
- server.listen(3001,()=>{
-    console.log("server created on port 3001 with html")
- })
+    const html = fs.readFileSync("./index.html","utf-8")
+    res.end(html)
+})
+server.listen(3002,()=>{
+    console.log('server created on port 3002 with file from index')
+})
